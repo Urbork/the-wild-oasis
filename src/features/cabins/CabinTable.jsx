@@ -6,6 +6,7 @@ import { useCabins } from "./useCabins";
 import Spinner from "../../ui/Spinner";
 import Table from "../../ui/Table";
 import CabinRow from "./CabinRow";
+import Menus from "../../ui/Menus";
 
 // const Table = styled.div`
 //   border: 1px solid var(--color-grey-200);
@@ -37,25 +38,27 @@ function CabinTable() {
   if (isLoading) return <Spinner />;
 
   return (
-    // <Table role="table">
-    <Table columns="0.6fr 1.8fr 2.2fr 1fr 1fr 1fr">
-      <Table.Header>
-        <div></div>
-        <div>Cabin</div>
-        <div>Capacity</div>
-        <div>Price</div>
-        <div>Discount</div>
-        <div></div>
-      </Table.Header>
+    <Menus>
+      {/* <Table role="table"> */}
+      <Table columns="0.6fr 1.8fr 2.2fr 1fr 1fr 1fr">
+        <Table.Header>
+          <div></div>
+          <div>Cabin</div>
+          <div>Capacity</div>
+          <div>Price</div>
+          <div>Discount</div>
+          <div></div>
+        </Table.Header>
 
-      {/* {cabins.map((cabin) => (
+        {/* {cabins.map((cabin) => (
         <CabinRow key={cabin.id} cabin={cabin} />
-      ))} */}
-      <Table.Body
-        data={cabins}
-        render={(cabin) => <CabinRow key={cabin.id} cabin={cabin} />}
-      />
-    </Table>
+        ))} */}
+        <Table.Body
+          data={cabins}
+          render={(cabin) => <CabinRow key={cabin.id} cabin={cabin} />}
+        />
+      </Table>
+    </Menus>
   );
 }
 
