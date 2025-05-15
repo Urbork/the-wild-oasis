@@ -123,13 +123,7 @@ function BookingRow({
             )}
 
             <Modal.Open opens="delete">
-              <Menus.Button
-                icon={<HiTrash />}
-                // onClick={() => deleteBooking(bookingId)}
-                // disabled={isDeleting}
-              >
-                Delete
-              </Menus.Button>
+              <Menus.Button icon={<HiTrash />}>Delete</Menus.Button>
             </Modal.Open>
           </Menus.List>
         </Menus.Menu>

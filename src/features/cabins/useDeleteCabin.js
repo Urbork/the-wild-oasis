@@ -6,7 +6,6 @@ export function useDeleteCabin() {
   const queryClient = useQueryClient();
 
   const { isLoading: isDeleting, mutate: deleteCabin } = useMutation({
-    // mutationFn: (id) => deleteCabin(id),
     mutationFn: deleteCabinApi,
     onSuccess: () => {
       toast.success("Cabin seccessfully deleted");

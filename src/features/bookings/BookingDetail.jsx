@@ -29,7 +29,6 @@ function BookingDetail() {
   const { deleteBooking, isDeleting } = useDeleteBooking();
   const moveBack = useMoveBack();
   const navigate = useNavigate();
-  // const status = "checked-in";
 
   if (isLoading) return <Spinner />;
   if (!booking) return <Empty resourceName="booking" />;
@@ -55,15 +54,6 @@ function BookingDetail() {
       <BookingDataBox booking={booking} />
 
       <ButtonGroup>
-        {/* <Button
-          onClick={() => {
-            deleteBooking(bookingId);
-            navigate("/bookings");
-          }}
-          disabled={isDeleting || isLoading}
-        >
-          Delete
-        </Button> */}
         {status === "unconfirmed" && (
           <Button onClick={() => navigate(`/checkin/${bookingId}`)}>
             Check in

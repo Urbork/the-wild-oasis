@@ -1,6 +1,3 @@
-// import styled from "styled-components";
-// import { useMutation, useQueryClient } from "@tanstack/react-query";
-// import toast from "react-hot-toast";
 import { useForm } from "react-hook-form";
 
 import FormRow from "../../ui/FormRow";
@@ -12,66 +9,8 @@ import Textarea from "../../ui/Textarea";
 
 import { useCreateCabin } from "./useCreateCabin";
 import { useEditCabin } from "./useEditCabin";
-// import { createEditCabin } from "../../services/apiCabins";
-
-// const FormRow = styled.div`
-//   display: grid;
-//   align-items: center;
-//   grid-template-columns: 24rem 1fr 1.2fr;
-//   gap: 2.4rem;
-
-//   padding: 1.2rem 0;
-
-//   &:first-child {
-//     padding-top: 0;
-//   }
-
-//   &:last-child {
-//     padding-bottom: 0;
-//   }
-
-//   &:not(:last-child) {
-//     border-bottom: 1px solid var(--color-grey-100);
-//   }
-
-//   &:has(button) {
-//     display: flex;
-//     justify-content: flex-end;
-//     gap: 1.2rem;
-//   }
-// `;
-
-// const Label = styled.label`
-//   font-weight: 500;
-// `;
-
-// const Error = styled.span`
-//   font-size: 1.4rem;
-//   color: var(--color-red-700);
-// `;
 
 function CreateCabinForm({ cabinToEdit = {}, onCloseModal }) {
-  // const queryClient = useQueryClient();
-
-  // const { mutate: createCabin, isLoading: isCreating } = useMutation({
-  //   mutationFn: createEditCabin,
-  //   onSuccess: () => {
-  //     toast.success("New cabin seccessfully created");
-  //     queryClient.invalidateQueries({ queryKey: ["cabins"] });
-  //     reset();
-  //   },
-  //   onError: (err) => toast.error(err.message),
-  // });
-
-  // const { mutate: editCabin, isLoading: isEditing } = useMutation({
-  //   mutationFn: ({ newCabinData, id }) => createEditCabin(newCabinData, id),
-  //   onSuccess: () => {
-  //     toast.success("Cabin seccessfully edited");
-  //     queryClient.invalidateQueries({ queryKey: ["cabins"] });
-  //     reset();
-  //   },
-  //   onError: (err) => toast.error(err.message),
-  // });
   const { isCreating, createCabin } = useCreateCabin();
   const { isEditing, editCabin } = useEditCabin();
   const isWorking = isCreating || isEditing;
@@ -82,12 +21,8 @@ function CreateCabinForm({ cabinToEdit = {}, onCloseModal }) {
     defaultValues: isEditSession ? editValues : {},
   });
   const { errors } = formState;
-  // console.log(errors);
 
   function onSubmit(data) {
-    // console.log(data);
-    // mutate(data);
-
     const image = typeof data.image === "string" ? data.image : data.image[0];
 
     if (isEditSession)
@@ -132,11 +67,9 @@ function CreateCabinForm({ cabinToEdit = {}, onCloseModal }) {
             required: "This field is required",
           })}
         />
-        {/* {errors?.name?.message && <Error>{errors.name.message}</Error>} */}
       </FormRow>
 
       <FormRow label="Maximum capacity" error={errors?.maxCapacity?.message}>
-        {/* <Label htmlFor="maxCapacity">Maximum capacity</Label> */}
         <Input
           type="number"
           id="maxCapacity"
@@ -152,7 +85,6 @@ function CreateCabinForm({ cabinToEdit = {}, onCloseModal }) {
       </FormRow>
 
       <FormRow label="Regular price" error={errors?.regularPrice?.message}>
-        {/* <Label htmlFor="regularPrice">Regular price</Label> */}
         <Input
           type="number"
           id="regularPrice"
@@ -168,7 +100,6 @@ function CreateCabinForm({ cabinToEdit = {}, onCloseModal }) {
       </FormRow>
 
       <FormRow label="Discount" error={errors?.discount?.message}>
-        {/* <Label htmlFor="discount">Discount</Label> */}
         <Input
           type="number"
           id="discount"
@@ -187,7 +118,6 @@ function CreateCabinForm({ cabinToEdit = {}, onCloseModal }) {
         label="Description for website"
         error={errors?.description?.message}
       >
-        {/* <Label htmlFor="description">Description for website</Label> */}
         <Textarea
           type="number"
           id="description"
@@ -200,7 +130,6 @@ function CreateCabinForm({ cabinToEdit = {}, onCloseModal }) {
       </FormRow>
 
       <FormRow label="Cabin photo">
-        {/* <Label htmlFor="image">Cabin photo</Label> */}
         <FileInput
           id="image"
           accept="image/*"
@@ -212,13 +141,11 @@ function CreateCabinForm({ cabinToEdit = {}, onCloseModal }) {
       </FormRow>
 
       <FormRow>
-        {/* type is an HTML attribute! */}
         <Button
           variation="secondary"
           type="reset"
           onClick={() => onCloseModal?.()}
         >
-          {/* {isEditSession ? "Clear form" : "Cancel"} */}
           Cancel
         </Button>
         <Button disabled={isWorking}>

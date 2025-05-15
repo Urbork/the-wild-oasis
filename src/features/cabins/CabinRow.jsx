@@ -61,22 +61,6 @@ function CabinRow({ cabin }) {
     });
   }
 
-  // const queryClient = useQueryClient();
-
-  // const { isLoading: isDeleting, mutate } = useMutation({
-  //   // mutationFn: (id) => deleteCabin(id),
-  //   mutationFn: deleteCabin,
-  //   onSuccess: () => {
-  //     toast.success("Cabin seccessfully deleted");
-
-  //     queryClient.invalidateQueries({
-  //       queryKey: ["cabins"],
-  //     });
-  //   },
-
-  //   onError: (err) => toast.error(err.message),
-  // });
-
   return (
     <Table.Row>
       <Img src={image} />

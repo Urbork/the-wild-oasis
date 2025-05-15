@@ -15,7 +15,6 @@ export function useDeleteBooking() {
       });
     },
 
-    // onError: () => toast.error("There was an error while deleting the booking"),
     onError: (err) => toast.error(err.message),
   });
 
