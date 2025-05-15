@@ -25,7 +25,7 @@ const FilterButton = styled.button`
   border-radius: var(--border-radius-sm);
   font-weight: 500;
   font-size: 1.4rem;
-  /* To give the same height as select */
+
   padding: 0.44rem 0.8rem;
   transition: all 0.3s;
 
@@ -49,14 +49,6 @@ function Filter({ filterField, options }) {
 
   return (
     <StyledFilter>
-      {/* <FilterButton onClick={() => handleClick("all")}>All</FilterButton>
-      <FilterButton onClick={() => handleClick("no-discount")}>
-        No discount
-      </FilterButton>
-      <FilterButton onClick={() => handleClick("with-discount")}>
-        With discount
-      </FilterButton> */}
-
       {options.map((option) => (
         <FilterButton
           key={option.value}
