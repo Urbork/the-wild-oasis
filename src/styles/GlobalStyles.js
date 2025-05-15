@@ -102,7 +102,6 @@ const GlobalStyles = createGlobalStyle`
   padding: 0;
   margin: 0;
 
-  /* Creating animations for dark mode */
   transition: background-color 0.3s, border 0.3s;
 }
 
@@ -150,7 +149,6 @@ select:focus {
   outline-offset: -1px;
 }
 
-/* Parent selector, finally 😃 */
 button:has(svg) {
   line-height: 0;
 }
@@ -178,7 +176,6 @@ h6 {
 img {
   max-width: 100%;
 
-  /* For dark mode */
   filter: grayscale(var(--image-grayscale)) opacity(var(--image-opacity));
 }
 `;
