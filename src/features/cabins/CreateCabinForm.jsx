@@ -58,7 +58,6 @@ function CreateCabinForm({ cabinToEdit = {}, onCloseModal }) {
       type={onCloseModal ? "modal" : "regular"}
     >
       <FormRow label="Cabin name" error={errors?.name?.message}>
-        {/* <Label htmlFor="name">Cabin name</Label> */}
         <Input
           type="text"
           id="name"
